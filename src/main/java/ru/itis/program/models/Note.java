@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "storage")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Note {
@@ -31,4 +32,6 @@ public class Note {
 
     @Column(name = "changing_date")
     private LocalDateTime dateTime;
+
+
 }
