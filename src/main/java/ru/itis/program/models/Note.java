@@ -6,23 +6,23 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "storage")
+@Table(name = "notes")
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User owner;
-
-    @ManyToOne
     @JoinColumn(name = "storage_id")
     private Storage storage;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private User owner;
 
     @Column(name = "note_header")
     private String header;
@@ -32,6 +32,5 @@ public class Note {
 
     @Column(name = "changing_date")
     private LocalDateTime dateTime;
-
 
 }
